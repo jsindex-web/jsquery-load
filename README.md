@@ -1,1 +1,1 @@
-# jsquery-load
+# jsdelivr
