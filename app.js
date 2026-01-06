@@ -33,20 +33,12 @@ function previewSpin() {
 
 // Generate Inject JS
 function generateInjectJS() {
-  const payload = btoa(document.getElementById("result").innerHTML);
+  const html = document.getElementById("result").innerHTML;
+  const payload = injectPayload(html);
+
   document.getElementById("inject").value =
-`<script>
-(function(){
- if(document.getElementById('bunker-payload'))return;
- var d=document.createElement('div');
- d.id='bunker-payload';
- d.style.display='none';
- d.innerHTML=atob('${payload}');
- document.body.appendChild(d);
-})();
-</script>`;
+    `<script>${payload}</script>`;
 }
-<button onclick="exportJSON()">Export JSON</button>
 
 const PASSWORD = "SeoMafiaWeb88"; // ganti sendiri
 
